@@ -5,6 +5,11 @@ object mergeSortWithoutTail extends App {
 
   def mergeSort[T](numList: List[T])(implicit equality: (T, T) => Boolean): List[T] = {
 
+    /*
+     * If we see the below function implementation, the recursive
+     * function is waiting for the result of next call. Hence if we can pass the
+     * value of the call, things will be smoother 
+     */
     def merge(left: List[T], right: List[T]): List[T] = {
       (left, right) match {
         case (Nil, _) => right
